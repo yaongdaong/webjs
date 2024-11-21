@@ -148,6 +148,18 @@ h2 {
 } */
 
 /* 제목이 밑에서부터 떠오르는 것처럼 나타내기 */
+/* body {
+    text-align: center;
+} */
+
+/* 배경이 늘어나는 제목 만들기 */
 body {
     text-align: center;
+}
+h1 {
+    color: #fff;
+    display: inline-block;
+    background-image: linear-gradient(90deg, #0bd, #0bd 50%, #fff 50%, #fff);
+    background-size: 200% 100%;
+    padding: 0.5rem 1rem;
 }

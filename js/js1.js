@@ -120,7 +120,7 @@ for (let i = 0; i < lists.length; i++) {
 */
 
 //  6.4 제목이 밑에서부터 떠오르는 것처럼 나타내기
-const heading = document.querySelector("#heading");
+/*const heading = document.querySelector("#heading");
 const keyframes = {
     opacity: [0, 1],
     translate: ["0 50px", 0],
@@ -129,5 +129,22 @@ const options = {
     duration: 2000,
     easing: "ease",
 };
-heading.animate(keyframes, options  );
+heading.animate(keyframes, options);*/
 
+// 6.8 제목에 사용할 수 있는 다양한 애니메이션
+/*const heading = document.querySelector("#heading");
+const keyframes = { opacity: [0, 1], rotate: ["x 360deg", 0] };
+const options = { duration: 1000, easing: "ease" };
+heading.animate(keyframes, options);*/
+
+// 색이 변하는 제목 만들기
+/* const heading = document.querySelector("#heading");
+const keyframs = { color: ["#f66", "#fc2", "#0bd", "#0c6"] };
+const options = { duration: 8000, direction: "alternate", iterations: Infinity };
+heading.animate(keyframs, options); */
+
+// 배경이 늘어나는 제목 만들기
+const heading = document.querySelector("#heading");
+const keyframes = { color: ["transparent", "#fff"], backgroundPosition: ["100% 0", "0 0"] };
+const options = { duration: 1000, easing: "ease" };
+heading.animate(keyframes, options);
