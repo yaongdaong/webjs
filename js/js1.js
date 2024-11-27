@@ -144,7 +144,57 @@ const options = { duration: 8000, direction: "alternate", iterations: Infinity }
 heading.animate(keyframs, options); */
 
 // 배경이 늘어나는 제목 만들기
-const heading = document.querySelector("#heading");
+/* const heading = document.querySelector("#heading");
 const keyframes = { color: ["transparent", "#fff"], backgroundPosition: ["100% 0", "0 0"] };
 const options = { duration: 1000, easing: "ease" };
-heading.animate(keyframes, options);
+heading.animate(keyframes, options); */
+
+// 흐물흐물 움직이는 제목 만들기
+/* const heading = document.querySelector("#heading");
+
+const keyframes = { borderRadius: ["20% 50% 50% 70%/50% 50% 70% 50%", "50% 20% 50% 50%/40% 40% 60% 60%", "50% 40% 20% 40%/40% 50% 50% 80%", "50% 50% 50% 20%/40% 40% 60% 60%"] };
+const options = {
+    duration: 8000,
+    direction: "alternate",
+    iterations: Infinity,
+};
+heading.animate(keyframes, options); */
+
+// 여러 이미지를 순서대로 표시하기
+/* const items = document.querySelectorAll(".img-item");
+
+for (let i = 0; i < items.length; i++) {
+    const keyframes = {
+        // 흐릿함이 사라지고 선명해지는 이미지 만들기
+        filter: ["blur(20px)", "blur(0)"],
+        // opacity: [0, 1],
+        // 회전하는 이미지 만들기
+        // rotate: ["x 90deg", 0],
+        // 밑에서부터 떠오르는 것처럼 나타내는 이미지 만들기
+        // translate: ['0 50px', 0],
+        // 부드럽게 떨어지는 이미지 만들기
+        // rotate: ['5deg', 0],
+        // scale: [1.1, 1]
+    };
+    const options = {
+        duration: 600,
+        delay: i * 300,
+        fill: "forwards",
+    };
+    items[i].animate(keyframes, options);
+} */
+
+// 6.13 스크롤과 애니메이션 조합하기
+// 관찰 대상이 범위 안에 나타나면 실행하는 동작
+const showKirin = (entries) => {
+    const keyframes = {
+        opacity: [0, 1],
+        translate: ["200px 0", 0],
+    };
+    entries[0].target.animate(keyframes, 600);
+};
+// 관찰 로봇 설정
+const kirinObserver = new IntersectionObserver(showKirin);
+
+// #kirin을 관찰하도록 지시
+kirinObserver.observe(document.querySelector("#kirin"));

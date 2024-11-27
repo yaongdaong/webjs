@@ -153,7 +153,7 @@ h2 {
 } */
 
 /* 배경이 늘어나는 제목 만들기 */
-body {
+/* body {
     text-align: center;
 }
 h1 {
@@ -162,4 +162,46 @@ h1 {
     background-image: linear-gradient(90deg, #0bd, #0bd 50%, #fff 50%, #fff);
     background-size: 200% 100%;
     padding: 0.5rem 1rem;
+} */
+
+/* 흐물흐물 움직이는 제목 만들기 */
+/* body {
+    text-align: center;
+}
+h1 {
+    background: #0bd;
+    color: #fff;
+    display: inline-block;
+    padding: 6rem 3rem;
+    border-radius: 50%;
+}
+ */
+
+/* 여러 이미지를 순서대로 표시하기 */
+/* .grid {
+    display: grid;
+    gap: 30px;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    max-width: 1020px;
+    margin: auto;
+    padding: 30px;
+}
+.img-item {
+    filter: blur(20px);
+    width: 100%;
+    aspect-ratio: 4/ 3;
+    object-fit: cover;
+}
+ */
+
+/* 6.13 스크롤과 애니메이션 조합하기 */
+body {
+    text-align: center;
+    padding: 1rem;
+}
+h1 {
+    margin: 50vh 0 50vh;
+}
+img {
+    max-width: 100%;
 }
