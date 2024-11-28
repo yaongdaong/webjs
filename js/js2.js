@@ -135,11 +135,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const images = document.querySelectorAll(".picture img");
     const text = document.querySelector(".text");
 
-    const newImagePaths = [
-        "../images/col-hover-demo2_img1.jpg",
-        "../images/col-hover-demo2_img2.jpg",
-        "../images/col-hover-demo2_img3.jpg"
-    ];
+    const newImagePaths = ["../images/col-hover-demo2_img1.jpg", "../images/col-hover-demo2_img2.jpg", "../images/col-hover-demo2_img3.jpg"];
 
     // 이미지 경로 설정
     images.forEach((image, index) => {
@@ -156,4 +152,68 @@ document.addEventListener("DOMContentLoaded", () => {
             event.target.animate({ opacity: [0.5, 1] }, { duration: 500 });
         });
     });
+});
+/*
+슬라이드 메뉴
+================================================ */
+const menuOpen = document.querySelector("#menu-open");
+const menuClose = document.querySelector("#menu-close");
+const menuPanel = document.querySelector("#menu-panel");
+const menuItems = document.querySelectorAll("#menu-panel li");
+const menuOptions = {
+    duration: 1400,
+    easing: "ease",
+    fill: "forwards",
+};
+// 메뉴 열기
+menuOpen.addEventListener("click", () => {
+    menuPanel.animate({ translate: ["100vw", 0] }, menuOptions);
+
+    // 링크를 하나씩 순서대로 표시
+    menuItems.forEach((menuItem, index) => {
+        menuItem.animate({ opacity: [0, 1], translate: ["2rem", 0] }, { duration: 2400, delay: 300 * index, easing: "ease", fill: "forwards" });
+    });
+});
+//  메뉴 닫기
+menuClose.addEventListener("click", () => {
+    menuPanel.animate({ translate: [0, "100vw"] }, menuOptions);
+    menuItems.forEach((menuItem) => {
+        menuItem.animate({ opacity: [1, 0] }, menuOptions);
+    });
+});
+
+/*
+모달창 제작 방법 
+================================================ */
+const open = document.querySelector("#open");
+const close = document.querySelector("#close");
+const modal = document.querySelector("#modal");
+const mask = document.querySelector("#mask");
+
+const showkeyframes = {
+    opacity: [0, 1],
+    visibility: "visible",
+};
+const hidekeyframes = {
+    opacity: [1, 0],
+    visibility: "hidden",
+};
+const options2 = {
+    duration: 800,
+    easing: "ease",
+    fill: "forwards",
+};
+// 모달창 열기
+open.addEventListener("click", () => {
+    modal.animate(showkeyframes, options2);
+    mask.animate(showkeyframes, options2);
+});
+// 모달창 닫기
+close.addEventListener("click", () => {
+    modal.animate(hidekeyframes, options2);
+    mask.animate(hidekeyframes, options2);
+});
+// 마스크를 클릭하면 모달창 닫기
+mask.addEventListener("click", () => {
+    close.click();
 });

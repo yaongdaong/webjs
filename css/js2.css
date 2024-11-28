@@ -310,3 +310,87 @@ DESKTOP SIZE
     transform: scale(1.05); /* 살짝 확대 */
     box-shadow: 0 6px 10px rgba(0, 0, 0, 0.3); /* 그림자 강조 */
 }
+/*
+SLIDE MENU
+================================================ */
+/* 열고 닫기 버튼 */
+.btn-menu {
+    position: fixed;
+    right: 1rem;
+    top: 1rem;
+    z-index: 4;
+    padding: 0.5rem 1rem;
+    border: 1px solide var(--brown);
+    border-radius: 50%;
+    height: 4rem;
+    width: 4rem;
+    transition: 0.4s;
+}
+.btn-menu svg {
+    fill: var(--brown);
+    margin-top: 0.25rem;
+    height: 2rem;
+    width: 2rem;
+}
+/* 닫기 버튼 */
+#menu-close {
+    border: 1px solid var(--light-green);
+}
+#menu-close svg {
+    fill: var(--light-green);
+}
+/* 슬라이드 메뉴 패널 */
+#menu-panel {
+    position: fixed;
+    top: 0;
+    right: 0;
+    z-index: 4;
+    padding: 8rem 2rem 2rem;
+    width: max(32vw, 20rem);
+    height: 100vh;
+    background-color: var(--brown);
+    box-shadow: 0 0 2rem var(--brown);
+    font-family: var(--oswald-font);
+    translate: 100vw;
+}
+.menu-list {
+    list-style: none;
+}
+.menu-list li {
+    margin: 1.5rem 0;
+    opacity: 0;
+}
+.menu-list a {
+    color: var(--light-green);
+    text-decoration: none;
+    font-size: 2rem;
+}
+/* 모달창 제작 방법  */
+#open,
+#close {
+    background: #ed8;
+    border: 3px solid #eb8;
+    border-radius: 0.5rem;
+    padding: 1rem 2rem;
+    cursor: pointer;
+}
+#mask {
+    background: rgba(0, 0, 0, 0.6);
+    position: fixed;
+    inset: 0;
+    z-index: 9998;
+    opacity: 0;
+    visibility: hidden;
+}
+#modal {
+    background: #fff;
+    max-width: 36rem;
+    padding: 2rem;
+    border-radius: 0.5rem;
+    position: absolute;
+    inset: 10rem 0 auto;
+    margin: auto;
+    z-index: 9999;
+    opacity: 0;
+    visibility: hidden;
+}
