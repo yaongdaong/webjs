@@ -217,3 +217,38 @@ close.addEventListener("click", () => {
 mask.addEventListener("click", () => {
     close.click();
 });
+
+/*
+스크롤로 요소 표시
+================================================ */
+// 관찰 대상이 범위 안에 들어오면 실행하는 동작
+// entries안에 교차 상태의 정보가 배열로 전달된다.
+const animateFade = (entries, obs) => {
+    entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+            entry.target.animate(
+                {
+                    opacity: [0, 1],
+                    filter: ["blur(.4rem)", "blur(0)"],
+                    translate: ["0 4rem", 0],
+                },
+                {
+                    duration: 2000,
+                    easing: "ease",
+                    fill: "forwards",
+                }
+            );
+            // 부드럽게 한 번 표시되었다면 관찰 중지
+            obs.unobserve(entry.target);
+        }
+    });
+};
+
+//  관찰 설정
+const fadeObserver = new IntersectionObserver(animateFade);
+
+// .fadein을 관찰하도록 지시
+const fadeElements = document.querySelectorAll(".fadein");
+fadeElements.forEach((fadeElement) => {
+    fadeObserver.observe(fadeElement);
+});

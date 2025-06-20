@@ -394,3 +394,6 @@ SLIDE MENU
     opacity: 0;
     visibility: hidden;
 }
+.fadein{
+    opacity: 0;
+}
